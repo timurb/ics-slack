@@ -1,0 +1,22 @@
+version: '3.6'
+
+services:
+  bot:
+    build: .
+    depends_on:
+    - redis
+
+  redis:
+    image: redis
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: ics
+      POSTGRES_DB: ics
+    env_file: .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data:rw
+
+volumes:
+  pgdata:
