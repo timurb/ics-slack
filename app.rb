@@ -1,5 +1,6 @@
 require 'sidekiq-scheduler'
 require_relative 'lib/scheduler'
+require_relative 'lib/fetcher'
 
 class ICSFetcher
   include Sidekiq::Worker
@@ -9,8 +10,5 @@ class ICSFetcher
   end
 end
 
-$ics = Scheduler.new('test', 1) do
-  puts "Block is run"
-end
-
+$ics = Fetcher.new('test')
 $ics.run

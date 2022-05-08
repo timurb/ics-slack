@@ -1,6 +1,13 @@
+#
+# Scheduler runs the specified block every time you invoke scheduler.run
+# but no more often than period passed at init time
+#
+# The intent is to call several scheduler.run periodically using cron or sidekiq
+# and still to be able to control the run frequency
+#
 class Scheduler
-  attr :period
   attr_reader :name
+  attr_reader :period
 
   def initialize(name, period=5, logger=Logger.new(STDOUT), &block)
     @name = name
