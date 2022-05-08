@@ -1,0 +1,9 @@
+.env*
+.idea*
+.git*
+.DS_Store
+Gemfile.lock
+docker-compose*
+
+# use a different path if your location is inside the app dir
+download/
