@@ -1,12 +1,16 @@
 require 'sidekiq-scheduler'
-require_relative 'lib/icsfeed'
+require_relative 'lib/scheduler'
 
 class ICSFetcher
   include Sidekiq::Worker
 
   def perform
-    $ics.fetch
+    $ics.run
   end
 end
 
-$ics = ICSFeed.new('asd')
+$ics = Scheduler.new('test', 1) do
+  puts "Block is run"
+end
+
+$ics.run
