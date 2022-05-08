@@ -1,9 +1,12 @@
 require 'sidekiq-scheduler'
+require_relative 'lib/icsfeed'
 
-class HelloWorld
+class ICSFetcher
   include Sidekiq::Worker
 
   def perform
-    puts 'Hello world'
+    $ics.fetch
   end
 end
+
+$ics = ICSFeed.new('asd')
