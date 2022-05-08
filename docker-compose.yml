@@ -6,6 +6,7 @@ services:
     command: bundle exec foreman start app
     depends_on:
     - redis
+    env_file: .env
     environment:
       REDIS_URL: redis://redis:6379/0
       DATABASE_URL: "postgresql://icsbot:$POSTGRES_PASSWORD@postgres/icsbot"

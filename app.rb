@@ -10,5 +10,5 @@ class ICSFetcher
   end
 end
 
-$ics = Fetcher.new('test')
+$ics = Fetcher.new('main', ENV['CAL'])
 $ics.run
