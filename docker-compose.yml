@@ -3,8 +3,12 @@ version: '3.6'
 services:
   bot:
     build: .
+    command: bundle exec foreman start app
     depends_on:
     - redis
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      DATABASE_URL: "postgresql://icsbot:$POSTGRES_PASSWORD@postgres/icsbot"
 
   redis:
     image: redis

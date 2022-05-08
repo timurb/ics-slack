@@ -1,0 +1,64 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    concurrent-ruby (1.1.10)
+    connection_pool (2.2.5)
+    e2mmap (0.1.0)
+    et-orbi (1.2.7)
+      tzinfo
+    faraday (1.0.1)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (1.2.0)
+      faraday (~> 1.0)
+    foreman (0.87.2)
+    fugit (1.5.3)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
+    gli (2.21.0)
+    hashie (5.0.0)
+    multipart-post (2.1.1)
+    raabro (1.4.0)
+    rack (2.2.3)
+    rack-protection (2.2.0)
+      rack
+    redis (4.1.4)
+    rufus-scheduler (3.8.1)
+      fugit (~> 1.1, >= 1.1.6)
+    sidekiq (5.2.9)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack (~> 2.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 4.2)
+    sidekiq-scheduler (3.2.1)
+      e2mmap
+      redis (>= 3, < 5)
+      rufus-scheduler (~> 3.2)
+      sidekiq (>= 3)
+      thwait
+      tilt (>= 1.4.0)
+    slack-ruby-client (1.0.0)
+      faraday (>= 1.0)
+      faraday_middleware
+      gli
+      hashie
+      websocket-driver
+    thwait (0.2.0)
+      e2mmap
+    tilt (2.0.10)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
+    websocket-driver (0.7.5)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.5)
+
+PLATFORMS
+  universal-darwin-18
+
+DEPENDENCIES
+  foreman
+  sidekiq
+  sidekiq-scheduler
+  slack-ruby-client
+
+BUNDLED WITH
+   2.3.13
