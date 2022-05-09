@@ -21,7 +21,7 @@ describe Scheduler do
   context 'on the second run' do
     let(:time) { Time.now }
     before do
-      scheduler.stub(:current_time).and_return(time)
+      allow(scheduler).to receive(:current_time).and_return(time)
     end
     
     it 'does not run before enough time has expired' do
@@ -32,7 +32,7 @@ describe Scheduler do
 
     it 'runs when enough time has expired' do
       scheduler.run
-      scheduler.stub(:current_time).and_return(time+300)
+      allow(scheduler).to receive(:current_time).and_return(time+300)
       expect(catcher).to receive(:run)
       scheduler.run
     end
