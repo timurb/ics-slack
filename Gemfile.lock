@@ -1,13 +1,18 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    ast (2.4.2)
+    backport (1.2.0)
+    benchmark (0.2.0)
     concurrent-ruby (1.1.10)
     connection_pool (2.2.5)
+    diff-lcs (1.5.0)
     e2mmap (0.1.0)
     et-orbi (1.2.7)
       tzinfo
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
+    faraday-net_http (2.0.2)
     faraday_middleware (1.2.0)
       faraday (~> 1.0)
     foreman (0.87.2)
@@ -16,12 +21,58 @@ GEM
       raabro (~> 1.4)
     gli (2.21.0)
     hashie (5.0.0)
+    icalendar (2.7.1)
+      ice_cube (~> 0.16)
+    ice_cube (0.16.4)
+    jaro_winkler (1.5.4)
+    kramdown (2.4.0)
+      rexml
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     multipart-post (2.1.1)
+    nokogiri (1.13.6-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.6-x86_64-darwin)
+      racc (~> 1.4)
+    parallel (1.22.1)
+    parser (3.1.2.0)
+      ast (~> 2.4.1)
     raabro (1.4.0)
+    racc (1.6.0)
     rack (2.2.3)
     rack-protection (2.2.0)
       rack
+    rainbow (3.1.1)
     redis (4.1.4)
+    regexp_parser (2.3.1)
+    reverse_markdown (2.1.1)
+      nokogiri
+    rexml (3.2.5)
+    rspec (3.11.0)
+      rspec-core (~> 3.11.0)
+      rspec-expectations (~> 3.11.0)
+      rspec-mocks (~> 3.11.0)
+    rspec-core (3.11.0)
+      rspec-support (~> 3.11.0)
+    rspec-expectations (3.11.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-mocks (3.11.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-support (3.11.0)
+    rubocop (1.29.0)
+      parallel (~> 1.10)
+      parser (>= 3.1.0.0)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.17.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 3.0)
+    rubocop-ast (1.17.0)
+      parser (>= 3.1.1.0)
+    ruby-progressbar (1.11.0)
     rufus-scheduler (3.8.1)
       fugit (~> 1.1, >= 1.1.6)
     sidekiq (5.2.9)
@@ -42,23 +93,49 @@ GEM
       gli
       hashie
       websocket-driver
+    solargraph (0.44.3)
+      backport (~> 1.2)
+      benchmark
+      bundler (>= 1.17.2)
+      diff-lcs (~> 1.4)
+      e2mmap
+      jaro_winkler (~> 1.5)
+      kramdown (~> 2.3)
+      kramdown-parser-gfm (~> 1.1)
+      parser (~> 3.0)
+      reverse_markdown (>= 1.0.5, < 3)
+      rubocop (>= 0.52)
+      thor (~> 1.0)
+      tilt (~> 2.0)
+      yard (~> 0.9, >= 0.9.24)
+    thor (1.2.1)
     thwait (0.2.0)
       e2mmap
     tilt (2.0.10)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.1.0)
+    webrick (1.7.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    yard (0.9.27)
+      webrick (~> 1.7.0)
 
 PLATFORMS
   universal-darwin-18
 
 DEPENDENCIES
+  faraday
+  faraday-net_http
   foreman
+  icalendar
+  rspec
+  rubocop
   sidekiq
   sidekiq-scheduler
   slack-ruby-client
+  solargraph
 
 BUNDLED WITH
    2.3.13

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'logger'
+
 #
 # Scheduler runs the specified block every time you invoke scheduler.run
 # but no more often than period passed at init time
@@ -21,6 +23,7 @@ class Scheduler
   def run
     @logger.debug("Waiting for scheduled time for #{name}: #{next_run}")
     return unless next_run <= current_time
+    run!
   end
 
   def run!

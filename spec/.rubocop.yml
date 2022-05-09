@@ -1,0 +1,7 @@
+inherit_from: ../.rubocop.yml
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: false
+
+Lint/EmptyBlock:
+  Enabled: false
