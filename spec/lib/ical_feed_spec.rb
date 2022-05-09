@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require "dry/files"
+require 'dry/files'
 require 'ical_feed'
 
 describe IcalFeed do
@@ -13,13 +13,13 @@ describe IcalFeed do
     allow(feeder).to receive(:raw).and_return fixture
   end
 
-  it "parses ICS" do
+  it 'parses ICS' do
     feeder.parse
     expect(feeder.ics).not_to be_nil
     expect(feeder.ics.events.count).to be_eql 37
   end
 
-  it "processes ICS" do
+  it 'processes ICS' do
     feeder.parse
     feeder.process
     expect(feeder.events.count).to be_eql 37

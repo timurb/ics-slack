@@ -23,6 +23,7 @@ class Scheduler
   def run
     @logger.debug("Waiting for scheduled time for #{name}: #{next_run}")
     return unless next_run <= current_time
+
     run!
   end
 

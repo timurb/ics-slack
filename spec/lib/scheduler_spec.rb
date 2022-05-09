@@ -4,12 +4,12 @@ require 'spec_helper'
 require 'scheduler'
 
 describe Scheduler do
-  let(:catcher) { spy("Test") }
-  let(:scheduler) {
+  let(:catcher) { spy('Test') }
+  let(:scheduler) do
     Scheduler.new('test', 1, Logger.new(nil)) do
       catcher.run
     end
-  }
+  end
 
   context 'on init' do
     it 'always runs' do
@@ -23,7 +23,7 @@ describe Scheduler do
     before do
       allow(scheduler).to receive(:current_time).and_return(time)
     end
-    
+
     it 'does not run before enough time has expired' do
       scheduler.run
       expect(catcher).not_to receive(:run)
@@ -32,7 +32,7 @@ describe Scheduler do
 
     it 'runs when enough time has expired' do
       scheduler.run
-      allow(scheduler).to receive(:current_time).and_return(time+300)
+      allow(scheduler).to receive(:current_time).and_return(time + 300)
       expect(catcher).to receive(:run)
       scheduler.run
     end

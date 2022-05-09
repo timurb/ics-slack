@@ -29,10 +29,11 @@ class IcalFeed
   end
 
   def process
-    @events = ics.events.map do |event|
-      event.parent = nil
-      Event.new(uuid: event.uid, title: event.summary, description: event.description, time: time_for(event))
-    end
+    @events =
+      ics.events.map do |event|
+        event.parent = nil
+        Event.new(uuid: event.uid, title: event.summary, description: event.description, time: time_for(event))
+      end
   end
 
   private

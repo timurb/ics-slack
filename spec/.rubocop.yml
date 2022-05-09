@@ -5,3 +5,6 @@ Style/MethodCallWithArgsParentheses:
 
 Lint/EmptyBlock:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false

@@ -3,7 +3,6 @@ AllCops:
   EnabledByDefault: true
 
 Style/IfUnlessModifier:
-#Style/GuardClause:
   Enabled: false
 
 Style/DocumentationMethod:
@@ -13,4 +12,7 @@ Lint/ConstantResolution:
   Enabled: false
 
 Style/Copyright:
+  Enabled: false
+
+Style/AccessorGrouping:
   Enabled: false
