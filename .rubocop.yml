@@ -1,0 +1,16 @@
+AllCops:
+  SuggestExtensions: false
+  EnabledByDefault: true
+
+Style/IfUnlessModifier:
+#Style/GuardClause:
+  Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Lint/ConstantResolution:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
