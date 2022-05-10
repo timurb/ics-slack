@@ -22,3 +22,6 @@ Style/DisableCopsWithinSourceCodeDirective:
 
 Style/InlineComment:
   Enabled: false
+
+Style/CollectionMethods:
+  Enabled: false
