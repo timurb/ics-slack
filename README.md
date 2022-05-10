@@ -9,8 +9,9 @@ Design:
 - [x] Fetch and parse iCal feed
 - [x] Detect upcoming events
 - [x] Track completed events
-- [ ] Send out message to Slack channel
 - [ ] Assemble scheduler
+- [ ] Enable Rollbar
+- [ ] Send out message to Slack channel
 - [ ] Finalize README
 
 Nice to haves:
