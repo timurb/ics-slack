@@ -16,3 +16,9 @@ Style/Copyright:
 
 Style/AccessorGrouping:
   Enabled: false
+
+Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: false
+
+Style/InlineComment:
+  Enabled: false

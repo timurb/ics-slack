@@ -4,6 +4,7 @@ require 'faraday'
 require 'faraday/net_http'
 require 'icalendar'
 require_relative 'event'
+require 'rrule'
 
 class IcalFeed
   attr_reader :url
@@ -24,21 +25,44 @@ class IcalFeed
     @raw = response.body
   end
 
-  def parse
-    @ics = Icalendar::Calendar.parse(raw).first
+  def parse(raw_text = nil)
+    if raw_text
+      Icalendar::Calendar.parse(raw_text).first # When used as a static method don't modify self
+    else
+      @ics = Icalendar::Calendar.parse(raw).first
+    end
   end
 
-  def process
+  def process   # rubocop:disable Metrics/MethodLength
     @events =
       ics.events.map do |event|
         event.parent = nil
-        Event.new(uuid: event.uid, title: event.summary, description: event.description, time: time_for(event))
+        next_event = time_for(event)
+        next unless next_event
+
+        Event.new(
+          uid: event.uid,
+          title: event.summary,
+          time: next_event,
+          description: event.description,
+          location: event.location,
+          url: event.url
+        )
       end
   end
 
   private
 
   def time_for(event)
-    event.dtstart.to_time       ###FIXME: doesn't work for recurring eventys
+    if event.rrule.empty?
+      event.dtstart.to_time
+    else
+      rrule = RRule.parse(event.rrule.first.value_ical, dtstart: event.dtstart)
+      rrule.from(current_time, limit: 1).first
+    end
+  end
+
+  def current_time
+    Time.now
   end
 end
