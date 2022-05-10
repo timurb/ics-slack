@@ -1,3 +1,8 @@
+#
+# This file is going to be removed very soon
+#
+
+
 require_relative 'scheduler'
 # require_relative 'event'
 require 'faraday'

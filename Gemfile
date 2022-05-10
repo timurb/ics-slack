@@ -16,7 +16,6 @@ gem 'slack-ruby-client'
 gem 'foreman'
 gem 'rollbar'
 
-
 group :development do
   gem 'rspec'
   gem 'rubocop'

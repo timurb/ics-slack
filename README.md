@@ -6,13 +6,15 @@ See completion progress below.
 
 Design:
 - [x] Periodically run the task with interval selection
-- [ ] Fetch actual iCal feed from the class
-- [ ] Keep several iCal feeds and events from them
-- [ ] Generate message on time match
+- [x] Fetch and parse iCal feed
+- [x] Detect upcoming events
 - [ ] Send out message to Slack channel
+- [ ] Assemble scheduler
 - [ ] Finalize README
 
 Nice to haves:
+- [ ] Send notifications on Alarms from ICalendar
+- [ ] Keep several iCal feeds and events from them
 - [ ] Persistence for everything
 - [ ] Slack commands integration/Slack UI
 - [ ] Multi-user support

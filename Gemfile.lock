@@ -86,6 +86,8 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
+    macaddr (1.7.2)
+      systemu (~> 2.6.5)
     method_source (1.0.0)
     minitest (5.15.0)
     multipart-post (2.1.1)
@@ -170,11 +172,14 @@ GEM
       thor (~> 1.0)
       tilt (~> 2.0)
       yard (~> 0.9, >= 0.9.24)
+    systemu (2.6.5)
     thor (1.2.1)
     tilt (2.0.10)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
+    uuid (2.3.9)
+      macaddr (~> 1.0)
     webrick (1.7.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
@@ -202,6 +207,7 @@ DEPENDENCIES
   sidekiq-scheduler
   slack-ruby-client
   solargraph
+  uuid
 
 BUNDLED WITH
    2.3.11

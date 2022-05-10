@@ -6,6 +6,9 @@ require 'icalendar'
 require_relative 'event'
 require 'rrule'
 
+#
+# A class to pull ICal feed, parse it and generate list of upcoming events
+#
 class IcalFeed
   attr_reader :url
   attr_reader :status
@@ -18,6 +21,7 @@ class IcalFeed
     @url = url
   end
 
+  # Fetch ICal feed from remote server
   def fetch
     response = Faraday.get(url)
     @status = response.status
@@ -25,14 +29,11 @@ class IcalFeed
     @raw = response.body
   end
 
-  def parse(raw_text = nil)
-    if raw_text
-      Icalendar::Calendar.parse(raw_text).first # When used as a static method don't modify self
-    else
-      @ics = Icalendar::Calendar.parse(raw).first
-    end
+  def parse
+    @ics = Icalendar::Calendar.parse(raw).first
   end
 
+  # Process ICal feed into array of Events
   def process   # rubocop:disable Metrics/MethodLength
     @events =
       ics.events.map do |event|
@@ -48,7 +49,7 @@ class IcalFeed
           location: event.location,
           url: event.url
         )
-      end
+      end.compact # rubocop:disable Style/MethodCalledOnDoEndBlock
   end
 
   private

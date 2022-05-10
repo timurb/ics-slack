@@ -19,9 +19,9 @@ describe IcalFeed do
     expect(ical_feed.ics.events.count).to be_eql 37
   end
 
-  it 'processes ICS' do
+  it 'proccesses ICS and keeps only events in future' do
     ical_feed.parse
     ical_feed.process
-    expect(ical_feed.events.count).to be_eql 37
+    expect(ical_feed.events.count).to be_eql 33
   end
 end
